@@ -1,0 +1,18 @@
+﻿
+@model UserModel
+@{
+    ViewData["Title"] = "User";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form asp-controller="User" asp-action="Create" method="POST">
+    <label asp-for="First_Name"></label>
+    <input type="text" asp-for="First_Name" />
+    <label asp-for="Last_Name"></label>
+    <input type="text" asp-for="Last_Name" />
+    <label asp-for="Email"></label>
+    <input type="text" asp-for="Email" />
+    <button type="submit">Submit</button>
+</form>
+
+
