@@ -22,7 +22,9 @@ namespace Domain.Controllers
         public async Task<ActionResult<IEnumerable<UserModel>>> Get()
         {
             var result = await _userManager.GtAllUsers();
-            return Ok(result);
+            if(result != null)
+                return Ok(result);
+            return NotFound();
 
         }
 
@@ -32,7 +34,9 @@ namespace Domain.Controllers
             //TempData["UserModel"] = user;
             var result = _userManager.CreateUser(user);
             
-            return Ok();
+            if(result == true)
+                return Ok();
+            return BadRequest();
 
         }
     }
